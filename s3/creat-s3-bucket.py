@@ -3,7 +3,7 @@ def create_s3_bucket(bucket_name):
     try:
         client = boto3.client('s3')
         response = client.create_bucket(
-            Bucket_name = bucket_name,
+            Bucket = bucket_name,
             CreateBucketConfiguration={
                 'LocationConstraint':'us-west-2',
             },)
@@ -13,10 +13,11 @@ def create_s3_bucket(bucket_name):
 
 if __name__ == '__main__':
     try:
-        bucket_name=input("Enter the uniqe:").stript()
+        bucket_name=input("Enter the uniqe bucket name:").strip()
         if len(bucket_name) != 0:
             create_s3_bucket(bucket_name)
-        print("Please enter the uniqe bucket name")
+        else:
+            print("Please enter the uniqe bucket name")
     except Exception as e:
         print("Exception occured",e)
 
