@@ -1,9 +1,9 @@
 import boto3
-def add_tag(tag_name):
+def add_tag(bucket_name):
     try:
         client = boto3.client('s3')
         response = client.put_bucket_tagging(
-        Bucket='tag-implementation-on-05-04-2025',
+        Bucket= bucket_name,
         ChecksumAlgorithm='CRC32'|'CRC32C'|'SHA1'|'SHA256'|'CRC64NVME',
         Tagging={
             'TagSet': [
@@ -20,6 +20,10 @@ def add_tag(tag_name):
 
 if __name__=='__main__':
     try:
-        add_tag(tag_name)
+        bucket_name=input("Enter the uniqe bucket name:").strip()
+        if len(bucket_name) != 0:
+            add_tag(bucket_name)
+        else:
+            print("Please enter the unique bucket name! ")
     except Exception as e:
         print("An Exception Occured !!",e)
