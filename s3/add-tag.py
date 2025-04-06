@@ -4,7 +4,7 @@ def add_tag(bucket_name):
         client = boto3.client('s3')
         response = client.put_bucket_tagging(
         Bucket= bucket_name,
-        ChecksumAlgorithm='CRC32'|'CRC32C'|'SHA1'|'SHA256'|'CRC64NVME',
+        ChecksumAlgorithm='CRC32',
         Tagging={
             'TagSet': [
                 {
