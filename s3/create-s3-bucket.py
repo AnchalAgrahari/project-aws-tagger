@@ -17,7 +17,7 @@ if __name__ == '__main__':
         if len(bucket_name) != 0:
             create_s3_bucket(bucket_name)
         else:
-            print("Please enter the uniqe bucket name")
+            print("Please enter the unique bucket name")
     except Exception as e:
         print("Exception occured",e)
 
